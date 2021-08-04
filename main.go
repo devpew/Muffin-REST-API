@@ -58,13 +58,8 @@ func isAuthorized(endpoint func(http.ResponseWriter, *http.Request)) http.Handle
 			})
 
 			if err != nil {
-				//fmt.Fprintf(w, err.Error())
-
-				//response = u.Message(false, "Missing auth token")
-				//var response = "wrong token"
 				w.WriteHeader(http.StatusForbidden)
 				w.Header().Add("Content-Type", "application/json")
-				//u.Respond(w, response)
 				return
 			}
 
@@ -105,7 +100,6 @@ func main() {
 	r.HandleFunc("/login", login).Methods("POST")
 
 	log.Fatal(http.ListenAndServe(":8000", r))
-
 }
 
 func getRUBFundsShares(w http.ResponseWriter, r *http.Request) {
@@ -163,7 +157,6 @@ func myRUBCurrentFunds(fundType string) []Funds {
 
 func myUSDCurrentFunds(fundType string) []Funds {
 	var amountShares []Funds
-
 	db, err := sql.Open("postgres", "postgres://postgres:1234@localhost/fin?sslmode=disable")
 
 	if err != nil {
@@ -226,21 +219,9 @@ func addNewFunds(data Funds) {
 func login(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Content-Type", "application/json")
-
 	var u User
-
-	fmt.Println("u: ", u)
-
 	json.NewDecoder(r.Body).Decode(&u)
-
-	fmt.Println("u: ", u)
-
-	// json.NewEncoder(w).Encode(stupid(u))
-	json.NewEncoder(w).Encode(u)
-
-	fmt.Println("u: ", u)
 	checkLogin(u)
-
 }
 
 func checkLogin(u User) string {
@@ -252,7 +233,7 @@ func checkLogin(u User) string {
 	}
 
 	validToken, err := GenerateJWT()
-	fmt.Println(validToken)
+	//fmt.Println(validToken)
 
 	if err != nil {
 		fmt.Println(err)
