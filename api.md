@@ -35,7 +35,7 @@ Date: Fri, 10 Jul 2020 20:42:19 GMT
 Content-Length: 163
 Connection: close
 
-"eykjlskdfijiI3djk3kdlidjkjfd.eysljFJejejf9DJlePppdjf8fkdjjdks.Dlfklksf883oowlsfid9edjoksrjf"
+"eykjlskdfijiI3djk3kd1idjkjfd.eysljFJejejf9DJlePppdjf8fkdjjdks.Dlfklksf183oowlsfid9edjoksrjf"
 ```
 
 If user or pass is not correct we will get 200 OK with the error:
@@ -72,7 +72,7 @@ responce:
 [
   {
     "id": 131,
-    "name": "хуй",
+    "name": "AGRO",
     "ticker": "AGRO",
     "amount": 32,
     "priceperitem": 103.48,
